@@ -1,6 +1,4 @@
-/*https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_portfolio3&stacked=h*/
-/* above link is also source for test images, give it a look this week for
-styling/making this project, its good*/
+
 body,
 h1,
 h2,
@@ -143,9 +141,33 @@ body{
 
 }
 .thumbnail{
+float: left;
   width: 320px;
 
 
+}
+.postcontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #818181;
+}
+.title{
+
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 20%;
+  font-size: 20px;
+  padding-left: 20px;
+}
+.date{
+
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 20%;
+  font-size: 20px;
+  padding-left: 20px;
+  
 }
 
 
