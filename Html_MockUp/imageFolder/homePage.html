@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="stylesheet" href="./styleA.css">
+
+</head>
+
+
+
+<div id="sidebarcontainer">
+  <div id="full_SideBar" class="sidebar">
+    <script src="sidebar.js"></script>
+
+    <a href="javascript:void(0)" class="close_button" onclick="closeNav()">×</a>
+    <a href="homePage.html">Home Page </a>
+    <a href="aboutPage.html">About Us</a>
+    <a href="contactPage.html">Contact Us</a>
+  </div>
+  <div id="main">
+    <button class="open_button" onclick="openNav()">☰ </button>
+
+  </div>
+</div>
+</div>
+
+<header>
+  <h1 style="text-align: center;">Welcome to the Monsters of Myth!</h1>
+</header>
+
+<body id="pagecontent">
+
+  <button onclick="updateImages('byURL')">Sort by Source</button>
+  <button onclick="updateImages('byTitle')">Sort by Title</button>
+  <button onclick="updateImages('random')">Randomize</button>
+  <div id="allImages" ondrop="drop(event)" ondragover="allowDrop(event)" ondragend="dragEndHandler(event)" class="w3-quarter"></div>
+
+
+  <script src="scriptA.js"></script>
+
+</body>
+
+</html>
