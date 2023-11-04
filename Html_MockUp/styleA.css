@@ -147,10 +147,17 @@ float: left;
 
 }
 .postcontainer{
+  border: 2px solid black;
   display: flex;
+  
   align-items: center;
   justify-content: center;
   background-color: #818181;
+  background-size: 10% auto;
+  width: 50%;
+  border-radius: 25px;
+  overflow: hidden;
+
 }
 .title{
 
@@ -170,4 +177,21 @@ float: left;
   
 }
 
+.friend_bar{
+  position: relative;
+  margin-top:-18px;
+  float:right;
+  top:0px;
+}
+.pfp{
+  border-radius: 25px;
+  width: 70px;
+
+
+}
+#friends_label{
+  background-color:black;
+
+
+}
 
