@@ -67,10 +67,12 @@ body{
 
 #sidebar_open{
   visibility: visible;
+  float: right;
 
 }
 #sidebar_close{
   visibility: hidden;
+  float: right;
 
 }
 
