@@ -190,8 +190,35 @@ float: left;
 
 }
 #friends_label{
-  background-color:black;
+  background-color:crimson;
+  background-size:cover;
+  margin-top:-30px;
+  float:left;
+  top:0px;
+  text-decoration: none;
+  border-radius: 10px;
 
 
 }
+#friend_menu_text{
+  color: #444;
+
+}
+.subs_bar{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#subs_label{
+  background-color:crimson;
+  background-size:cover;
+  margin-top:-30px;
+  float:left;
+  top:0px;
+  text-decoration: none;
+  border-radius: 10px;
+
+
+}
+
 
