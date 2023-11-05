@@ -219,7 +219,7 @@ body{
   position: relative;
   margin-top:-10px;
   float:right;
-  top:0px;
+  top:100px;
 }
 .pfp{
   border-radius: 25px;
