@@ -19,7 +19,7 @@ body{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color:#6d0000;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -141,22 +141,31 @@ body{
 
 }
 .thumbnail{
-float: left;
+  float: left;
+  position:sticky;
   width: 320px;
+  display:block;
+
+
 
 
 }
+/* Add something to sidebar that shrinks these  */
 .postcontainer{
   border: 2px solid black;
   display: flex;
-  
   align-items: center;
   justify-content: center;
   background-color: #818181;
   background-size: 10% auto;
-  width: 50%;
+  width: 70%;
   border-radius: 25px;
   overflow: hidden;
+
+}
+.postcontainer_title{
+  position:relative;
+  top:-5px;
 
 }
 .title{
