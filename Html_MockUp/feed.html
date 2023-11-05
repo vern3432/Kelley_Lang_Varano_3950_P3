@@ -38,15 +38,17 @@
 
    </a>
    <div id="main">
-    <button class="open_button" onclick="closeNav()"><img src="sidebarclose2.png" alt="" id="sidebarclose"> </button>  
-  
+    <button id="sidebar_close"  class="open_button"   onclick="closeNav()"><img src="sidebarclose2.png" alt="" id="sidebarclose"> </button>  
+    <br>
+    <button id="sidebar_open" class="open_button" onclick="openNav()"><img src="sidebarclose2.png" alt="" id="sidebarclose" style="  transform: scaleX(-1);"> </button>  
+
   </div>
     
     
   </div>
 
   <div id="main">
-    <button class="open_button" onclick="openNav()"><img src="sidebarclose2.png" alt="" id="sidebarclose"> </button>  
+    <!-- <button class="open_button" onclick="openNav()"><img src="sidebarclose2.png" alt="" id="sidebarclose"> </button>   -->
   
   </div>
 </div>
@@ -100,15 +102,15 @@
 
 
 <body id="pagecontent">
-    <body>
-  <h1>Posts Feeed</h1>
+    
+  <h1 id="pagetitle">Posts Feeed</h1>
 <div id="posts">     
             <div class="flex">
                <div class="postcontainer">
                 <img class="thumbnail" src="thumnail.jpg" alt="">
                 <p class="title">Isaiah Thomas 52 Points! 29 in the 4th Quarter | 12.30.16
                 </p>
-                <p class="date">Dec 30, 2016</p>
+                <span class="date">Dec 30, 2016</span>
 
               </div>
         <br>    
@@ -132,7 +134,7 @@
     
     </div>
 
-    <div class="flex">
+     <div class="flex">
       <div class="postcontainer">
       <img class="thumbnail" src="thumbnail4.jpg" alt="">
       <p class="title" class="postcontainer_title">The Wire - Stringer Tells Wee Bey He Shot A Cop</p>

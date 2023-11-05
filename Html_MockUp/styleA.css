@@ -14,15 +14,15 @@ body{
 
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 80px;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  left: -32px;
   background-color:#6d0000;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .sidebar a {
@@ -32,6 +32,9 @@ body{
   color: #818181;
   display: block;
   transition: 0.3s;
+}
+.sidebar a b{
+ visibility: hidden;
 }
 
 .sidebar a:hover {
@@ -49,14 +52,26 @@ body{
 .open_button {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
-  color: white;
   padding: 10px 15px;
   border: none;
+  background-color: transparent;
+
 }
 
+
 .openbtn:hover {
-  background-color: #444;
+  background-color: transparent;
+  filter: brightness(150%);
+
+}
+
+#sidebar_open{
+  visibility: visible;
+
+}
+#sidebar_close{
+  visibility: hidden;
+
 }
 
 #main {
@@ -67,7 +82,7 @@ body{
 #sidebarclose{
     width: 50px;
   overflow:hidden ;
-  margin-right:0;
+  
 
 
 }
@@ -142,14 +157,16 @@ body{
 }
 .thumbnail{
   float: left;
-  position:sticky;
-  width: 320px;
-  display:block;
+  max-width: 320px;
+  width: 100%;
+  
 
 
 
 
 }
+
+
 /* Add something to sidebar that shrinks these  */
 .postcontainer{
   border: 2px solid black;
@@ -158,14 +175,20 @@ body{
   justify-content: center;
   background-color: #818181;
   background-size: 10% auto;
-  width: 70%;
+  width: 65%;
   border-radius: 25px;
   overflow: hidden;
+  margin-left: 45px;
+
+}
+
+.pagecontent h1{
+  margin-left: 45px;
 
 }
 .postcontainer_title{
-  position:relative;
-  top:-5px;
+  float: right;
+  padding: 15px;
 
 }
 .title{
