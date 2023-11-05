@@ -67,7 +67,6 @@ body{
 
 #sidebar_open{
   visibility: visible;
-  float: right;
 
 }
 #sidebar_close{
@@ -188,6 +187,11 @@ body{
   margin-left: 45px;
 
 }
+#pagetitle{
+  margin-left: 45px;
+
+
+}
 .postcontainer_title{
   float: right;
   padding: 15px;
@@ -213,7 +217,7 @@ body{
 
 .friend_bar{
   position: relative;
-  margin-top:-18px;
+  margin-top:-10px;
   float:right;
   top:0px;
 }
@@ -226,16 +230,21 @@ body{
 #friends_label{
   background-color:crimson;
   background-size:cover;
-  margin-top:-30px;
+  margin-top:-19px;
   float:left;
   top:0px;
   text-decoration: none;
   border-radius: 10px;
+  
 
 
 }
 #friend_menu_text{
   color: #444;
+
+}
+#friend_container{
+padding-top: 10px;
 
 }
 .subs_bar{
