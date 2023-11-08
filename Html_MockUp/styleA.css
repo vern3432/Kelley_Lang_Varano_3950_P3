@@ -15,19 +15,30 @@ body{
 
 
 .top-banner {
-  
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-bottom: 10px;
   text-align: center;
   background-color:#6d0000;
+  margin-top:-10px;
+  
+
 }
 
 .top-banner a, .top-banner span {
   display: inline-block;
 }
+.banner_logo{
+  width: 30%;
+  height: auto;
+  float:left;
+  position: left;  
+
+
+}
 
 .top-banner a {
-  width: 100%;
+  width: 6%;
   padding: 15px 0;
   text-decoration: none;
   color: #fff;
