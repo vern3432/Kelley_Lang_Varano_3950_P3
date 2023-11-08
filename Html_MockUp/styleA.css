@@ -12,6 +12,40 @@ body{
   background-color: #FFFDD0;
 }
 
+
+
+.top-banner {
+  
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color:#6d0000;
+}
+
+.top-banner a, .top-banner span {
+  display: inline-block;
+}
+
+.top-banner a {
+  width: 100%;
+  padding: 15px 0;
+  text-decoration: none;
+  color: #fff;
+  color: rgba(255, 255, 255, .8);
+}
+
+.top-banner button{
+  width: 50px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #a1c45a;
+  border-radius: 20px;
+}
+
+.top-banner a:hover {
+  color: #fff9e0;
+}
+
 .sidebar {
   height: 100%;
   width: 80px;
