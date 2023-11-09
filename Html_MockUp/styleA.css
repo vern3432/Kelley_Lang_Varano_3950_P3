@@ -86,8 +86,7 @@ body{
   transition: 0.3s;
 }
 .sidebar a b{
- visibility: hidden;
-}
+ }
 
 .sidebar a:hover {
   color: #f1f1f1;
@@ -370,6 +369,9 @@ padding-top: 10px;
   padding: 100px 20px;
   height: 100%;
 }
-
+#login
+{    
+    visibility: visible;
+}
 #Home {background-color: gray;}
 #News {background-color: gray;}
