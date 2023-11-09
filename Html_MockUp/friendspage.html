@@ -67,6 +67,9 @@
   
   <!-- Tab content -->
   <script>
+
+window.onload = function(){document.getElementById("friends").click(); };
+
 function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
@@ -92,7 +95,7 @@ function openPage(pageName, elmnt, color) {
 
 
   </script>
-  <button class="tablink" onclick="openPage('Home', this, 'red')">Friends</button>
+  <button id="friends" class="tablink" onclick="openPage('Home', this, 'red')">Friends</button>
   <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Subscriptions</button>
 
   <div id="Home" class="tabcontent">
