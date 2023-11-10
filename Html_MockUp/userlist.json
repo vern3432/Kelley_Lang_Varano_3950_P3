@@ -5,10 +5,8 @@
       "userPFP": "bart.png",
       "username": "@Bart_Simpson",
       "userBio": "Eat my shorts!",
-
-      "friends": [],
-      "subscrriptions": [],
-
+      "friends": [{}],
+      "subscrriptions": [{}],
       "posts": [
         {
           "posterID": "00001",
@@ -50,6 +48,8 @@
       "userPFP": "lisa.png",
       "username": "@Lisa_Simpson",
       "userBio": "It's awful being a kid. No one listens to you.",
+      "friends": [{}],
+      "subscrriptions": [{}],
       "posts": [
         {
           "posterID": "00002",
@@ -73,6 +73,8 @@
       "userPFP": "maggie.png",
       "username": "@Maggie_Simpson",
       "userBio": "",
+      "friends": [{}],
+      "subscrriptions": [{}],
       "posts": [
         {
           "posterID": "00003",
@@ -82,9 +84,7 @@
           "thumbnail": "thumbnail3.jpg",
           "date": "09/10/2016",
           "Youtube_url": "",
-          "comments": [
-            {}
-          ]
+          "comments": [{}]
         }
       ]
     },
@@ -93,27 +93,27 @@
       "userPFP": "homer.png",
       "username": "@Homer_Simpson",
       "userBio": "Doh!",
-      "posts": [
-        {}
-      ]
+      "friends": [{}],
+      "subscrriptions": [{}],
+      "posts": [{}]
     },
     {
       "userID": "00005",
       "userPFP": "marge.png",
       "username": "@Marge_Simpson",
       "userBio": "I just think they're neat!",
-      "posts": [
-        {}
-      ]
+      "friends": [{}],
+      "subscrriptions": [{}],
+      "posts": [{}]
     },
     {
       "userID": "00006",
       "userPFP": "graggle.png",
       "username": "@Graggle_Simpson",
       "userBio": "It's gragglin' time.",
-      "posts": [
-        {}
-      ]
+      "friends": [{}],
+      "subscrriptions": [{}],
+      "posts": [{}]
     }
   ]
 }
