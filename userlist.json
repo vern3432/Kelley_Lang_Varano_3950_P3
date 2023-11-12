@@ -6,7 +6,20 @@
       "username": "@Bart_Simpson",
       "password":"123",
       "userBio": "Eat my shorts!",
-      "friends": [{}],
+      "friends": [{
+        "username":"@Maggie_Simpson",
+        "userID":"00003",
+        "times_visted":"1" 
+      },
+
+      {
+        "username":"@Maggie_Simpson",
+        "userID":"00003",
+        "times_visted":"1"
+
+      }
+    
+    ],
       "subscrriptions": [{}],
       "posts": [
         {
