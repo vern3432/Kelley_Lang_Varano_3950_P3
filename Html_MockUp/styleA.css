@@ -114,6 +114,12 @@ body{
   filter: brightness(120%);
 
 }
+.contentheader{
+  font-weight: 600;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+}
 
 
 .openbtn:hover {
