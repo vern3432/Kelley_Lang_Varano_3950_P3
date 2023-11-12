@@ -114,9 +114,37 @@
   <div class="video_post_container">
   <label for="video_container"><h1>Video Title</h1></label>
   <iframe id="video_container"width="560" height="315" src="https://www.youtube.com/embed/gHLgryJKwvU?si=rA8shgeBhCr9csuz" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <h3>Date Posted</h3>
-  <h3>Poster(With pfp)</h3>
-  <h3>Url:original Url</h3>
+  <h3 id = "date"></h3>
+  <script>
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+
+      document.getElementById("date").innerHTML = myObj.date;
+    }
+    xmlhttp.open("GET", "masterlist.json")
+  </script>
+  <!-- need to add pfp here-->
+  <h3 id = "poster"></h3>
+  <script>
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+
+      document.getElementById("poster").innerHTML = myObj.displayName;
+    }
+    xmlhttp.open("GET", "masterlist.json")
+  </script>
+  <h3 id = "url"></h3>
+  <script>
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+
+      document.getElementById("url").innerHTML = myObj.url;
+    }
+    xmlhttp.open("GET", "masterlist.json")
+  </script>
   </div>
   <br>
   <br>
