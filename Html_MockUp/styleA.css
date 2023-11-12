@@ -25,6 +25,7 @@ body{
 
 }
 
+
 .top-banner a, .top-banner span {
   display: inline-block;
 }
@@ -107,6 +108,10 @@ body{
   padding: 10px 15px;
   border: none;
   background-color: transparent;
+
+}
+.searchbutton:hover{
+  filter: brightness(120%);
 
 }
 
