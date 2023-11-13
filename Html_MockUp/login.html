@@ -22,6 +22,18 @@
         // document.getElementsByClassName('signupbutton')[0].style.display = 'none';
         document.getElementById('signupbutton2').style.visibility = 'visible';
 
+    ////this function should be the xml request for signup proccess . When it returns a valid sign up, redirect to feed while changing storage value of current users
+    function signupSubmit(){
+
+
+    }
+////this should be another xml request, should be receiving a boolean checking the validlity of the login data. if not vlaid. display a simple "invalid user or login in "
+    function logIn(){
+
+
+    }
+    
+    
     }
 </script>
 
@@ -164,6 +176,8 @@
     }
     </style>
     </html>
+    <script src="./storage.js">
+    </script>
     <body  style="background-color: #6d0000;">
         <img style="height: 300px; overflow-x: hidden;  position: absolute;
         top: -10px;
@@ -187,7 +201,7 @@
         <p class="login_button"  style="color: white;">or</p>
         <button class="signupbutton"  onclick="Signup()">Sign up</button style=" text-align: center;">
            <br>
-       <button id="signupbutton2" class="signupbutton" onclick="">Sign up!</button style=" text-align: center; =">
+       <button type="button" id="signupbutton2" class="signupbutton" onclick="storage('current_user','0004')">Sign up!</button style=" text-align: center; =">
 
       </form>
     </div>

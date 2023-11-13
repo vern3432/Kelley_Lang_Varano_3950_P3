@@ -126,14 +126,27 @@
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       const myObj = JSON.parse(this.responseText);
-
+      //you need to assign the url to the src of the iframe. 
       document.getElementById("date").innerHTML = myObj.date;
       document.getElementById("poster").innerHTML = myObj.displayName;
       document.getElementById("url").innerHTML = myObj.url;
+      var iframe1 = document.getElementById("video_container");
+      iframe1.src = myObj.url;
     }
     xmlhttp.open("GET", "masterlist.json")
     xmlhttp.send();
+    
+  ///will post the  comment. should update section when done. 
+    function postComment(){
 
+
+    }
+    ///This will update comments. to be used in postComment function for ajax design 
+    async function updateComments(){
+
+
+
+    }
 
 
     
