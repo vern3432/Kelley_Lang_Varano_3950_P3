@@ -15,10 +15,10 @@ function storage(type,input){
         localStorage.setItem("post_request", input);
     
       }
+      console.log( localStorage.getItem("current_user"))
 
 }
-if (typeof(Storage) !== "undefined") {
-  // Store
+
   if(localStorage.getItem("current_user")==null){
     localStorage.setItem("current_user", "0001");
 
@@ -32,7 +32,8 @@ if (typeof(Storage) !== "undefined") {
 
   }
 
-}
+
+
   // Retrieve
 //   document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 // } else {
