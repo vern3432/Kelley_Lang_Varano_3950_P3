@@ -210,7 +210,45 @@ fieldset {
   color: #888;
 }
 </style>
-</html>
+
+<script>
+
+submitpost = function(){
+    // Gather the data from the form
+    title = document.getElementById("title").value;
+    title = document.getElementById("url").value;
+    newpet = new post(title, title);
+
+    // Construct a Fetch request
+    logPost(newpet);
+
+    ///load new post 
+
+    
+}
+
+post = function(n, s ){
+    this.name = n;
+    this.species = s;
+
+
+
+  async function logPost(newpost) {
+    const response = await fetch('http://cs.merrimack.edu:5014', {
+		method: 'POST',
+		body: JSON.stringify(newpost)
+	});
+
+  	const responseText = await response.text();
+  	loadPetsFromFile();
+}  }
+
+
+
+
+
+
+</script>
 <div class="container">  
   <form id="post" action="" method="post">
     <h3>Make Post</h3>
@@ -228,6 +266,7 @@ fieldset {
   </form>
 </div>
 </body>
+</html>
 
 
 <!-- 
