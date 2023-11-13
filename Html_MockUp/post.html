@@ -9,7 +9,7 @@
     
 </head>
 <div class="top-banner">
-  <form action=""></form>   <input type="text" id="fname" name="fname"><button>Search</button>
+  <form action=""></form>   <input type="text" id="fname" name="fname" ><button class="searchbutton">Search</button>
   <select name="searchtab" id="searchtype">
     <option value="Posts">Posts</option>
     <option value="Users">Users</option>
@@ -17,27 +17,30 @@
 
 </div>
 <div id="sidebarcontainer">
-<div id="full_SideBar" class="sidebar">
-    <script src="sidebar.js" ></script>
+  <div id="full_SideBar" class="sidebar">
+    <script src="sidebar.js"></script>
 
-    <a href="google.com">
-        <img id="home"  class="icon" src="homepage.png" alt=""> <b class="sidebar_text" id="home" style="  font-size: 23px;">Home</b> <br>
+    <a href="feed.html">
+      <img id="home" class="icon" src="homepage.png" alt="" />
+      <b class="sidebar_text" id="home" style="font-size: 23px">Home</b>
+      <br />
     </a>
 
-    <a href="#services">
-            <img id="Post"    class="icon" src="post3.png" alt=""> <b class="sidebar_text"  id="Post" style="  font-size: 23px;" >Post</b> <br>
-
+    <a href="./makepost.html">
+      <img id="Post" class="icon" src="post3.png" alt="" />
+      <b class="sidebar_text" id="Post" style="font-size: 23px">Post</b>
+      <br />
     </a>
-    <a href="#clients">
-        <img id="friend"    class="icon" src="friends2.png" alt=""> <b class="sidebar_text"id="friend" style="  font-size: 23px;">Friends</b> <br>
-
-
+    <a href="./friendspage.html">
+      <img id="friend" class="icon" src="friends2.png" alt="" />
+      <b class="sidebar_text" id="friend" style="font-size: 23px">Friends</b>
+      <br />
     </a>
-    <a href="#clients">
-      <img id="profile"    class="icon" src="profile2.png" alt=""> <b class="sidebar_text"id="friend" style="  font-size: 23px;">Profile</b> <br>
-
-
-  </a>
+    <a href="userprofile.html">
+      <img id="profile" class="icon" src="profile2.png" alt="" />
+      <b class="sidebar_text" id="friend" style="font-size: 23px">Profile</b>
+      <br />
+    </a>
     
    <a href="google.com">
 
@@ -110,21 +113,54 @@
 
 </div>
 
-
 <body id="pagecontent">
   <div class="video_post_container">
   <label for="video_container"><h1>Video Title</h1></label>
   <iframe id="video_container"width="560" height="315" src="https://www.youtube.com/embed/gHLgryJKwvU?si=rA8shgeBhCr9csuz" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <h3>Date Posted</h3>
-  <h3>Poster(With pfp)</h3>
-  <h3>Url:original Url</h3>
+  <h3 id = "date"></h3>
+  <!-- need to add pfp here-->
+  <h3 id = "poster"></h3>
+  <h3 id = "url"></h3>
+  <script>
+    
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+
+      document.getElementById("date").innerHTML = myObj.date;
+      document.getElementById("poster").innerHTML = myObj.displayName;
+      document.getElementById("url").innerHTML = myObj.url;
+    }
+    xmlhttp.open("GET", "masterlist.json")
+    xmlhttp.send();
+
+
+
+    
+  </script>
   </div>
   <br>
   <br>
   <br>
-  
-  <p> add post coment feild here add posted comment section down here</p> 
-  </body>
+  <style>
+    #comment_container button{
+      background-color: brown;
+      border-radius: 10px;
+
+
+    }
+    #comment_container button:hover{
+      filter: brightness(150%);
+
+}
+  </style>
+<div id="comment_container">
+  <div class="coment-bottom bg-white p-2 px-4">
+    <div class="comment_pfp"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://pbs.twimg.com/media/FtsxswzaUAAZXJj.jpg:large" alt="https://pbs.twimg.com/media/FtsxswzaUAAZXJj.jpg:large" width="38"><input type="text" class="form-control mr-3" placeholder="Add comment">
+      <button class="commetn_button" type="button">Comment</button>
+</div>
+</div>
+</body>
 
 
 

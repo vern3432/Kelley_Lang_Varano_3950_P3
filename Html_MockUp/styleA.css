@@ -25,6 +25,7 @@ body{
 
 }
 
+
 .top-banner a, .top-banner span {
   display: inline-block;
 }
@@ -107,6 +108,16 @@ body{
   padding: 10px 15px;
   border: none;
   background-color: transparent;
+
+}
+.searchbutton:hover{
+  filter: brightness(120%);
+
+}
+.contentheader{
+  font-weight: 600;
+  background-clip: text;
+  -webkit-background-clip: text;
 
 }
 
@@ -241,8 +252,19 @@ body{
   margin-left: 45px;
 
 }
+.pagecontent form{
+  margin-left: 45px;
+
+}
 .pagecontent h1{
   margin-left: 45px;
+
+  
+}
+#pagecontent{
+    margin-left: 50px;
+    float: inline-start;
+
 
 }
 
