@@ -8,11 +8,11 @@ function storage(type,input){
     
       }
       if(type=="current_user"){
-        localStorage.setItem("user_request", "0001");
+        localStorage.setItem("user_request", input);
     
       }
       if(localStorage.getItem("post_request")==null){
-        localStorage.setItem("post_request", "0001");
+        localStorage.setItem("post_request", input);
     
       }
 
