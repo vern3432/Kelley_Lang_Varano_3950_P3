@@ -2,7 +2,6 @@ var email_visted = false;
 var subject_visted = false;
 var body_visted = false;
 const speakeasy = requires('speakeasy');
-const qrcode = requires('qrcode');
 
 function browser() {
   if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
