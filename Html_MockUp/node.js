@@ -2,7 +2,7 @@ var http = require ('http');
 const fs = require('fs');
 const host = 'localhost';
 const port = 8080;
-///please review storage.js to see how we will be storing requests
+///please review storage.js to see how we will be storing requests that are being made. 
 const json = require('./random.json');
 console.log(json.date);
 

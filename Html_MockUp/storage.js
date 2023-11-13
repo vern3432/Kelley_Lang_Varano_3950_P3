@@ -1,5 +1,13 @@
 
 // Check browser support
+///three major storages. 
+// 1. curent user:logged in user
+// 2. post request: current post being requested. may need user and post id so it an be properly referenced. 
+// 3. user request: current user being requsted for user page look could be used for profile page as well, just set to current user before load. 
+
+// Call this functions before page that requires them is loaded. 
+
+
 
 function storage(type,input){
 
@@ -34,6 +42,43 @@ function storage(type,input){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   // Retrieve
 //   document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 // } else {
