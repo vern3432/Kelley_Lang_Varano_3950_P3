@@ -79,7 +79,45 @@ function input_check() {
     }
 }
 
+`var clientID = '765060678442-gg76tpqg6ruerm5oouqm2scin1jat679.apps.googleusercontent.com';
+var redirectURI = 'http://localhost:8080';
+var fragmentString = location.hash.substring(1);
 
+//Checks source of request 
+function tryRequest(){
+  var params = {};
+      var regex = /([^&=]+)=([^&]*)/g, m;
+      while (m = regex.exec(fragmentString)) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      }
+      if (Object.keys(params).length > 0) {
+        localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
+        if (params['state'] && params['state'] == 'startLogIn') {
+          startLogIn();
+        }
+      }
+}
+
+function startLogIn() {
+  var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+  if (params && params['access_token']) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET',
+        'https://www.googleapis.com/drive/v3/about?fields=user&' +
+        'access_token=' + params['access_token']);
+    xhr.onreadystatechange = function (e) {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.response);
+      } else if (xhr.readyState === 4 && xhr.status === 401) {
+        // Prompts for user permission if token is invalid
+        oauth2SignIn();
+      }
+    };
+    xhr.send(null);
+  } else {
+    oauth2SignIn();
+  }
+}`
 
 
 function send_email() {
