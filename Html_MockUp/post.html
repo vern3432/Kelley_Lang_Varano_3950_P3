@@ -130,10 +130,17 @@
       document.getElementById("date").innerHTML = myObj.date;
       document.getElementById("poster").innerHTML = myObj.displayName;
       document.getElementById("url").innerHTML = myObj.url;
+      var iframe1 = document.getElementById("video_container");
+      iframe1.src = myObj.url;
     }
     xmlhttp.open("GET", "masterlist.json")
     xmlhttp.send();
+    
+    async function updateComments(){
 
+
+
+    }
 
 
     
