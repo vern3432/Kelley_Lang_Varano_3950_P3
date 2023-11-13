@@ -231,7 +231,7 @@ post = function(n, s ){
     this.name = n;
     this.species = s;
 
-
+}
 
   async function logPost(newpost) {
     const response = await fetch('http://cs.merrimack.edu:5014', {
@@ -241,7 +241,7 @@ post = function(n, s ){
 
   	const responseText = await response.text();
   	loadPetsFromFile();
-}  }
+} 
 
 
 
