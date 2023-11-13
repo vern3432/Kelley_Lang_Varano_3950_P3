@@ -8,10 +8,9 @@ console.log(json.date);
 
 http.createServer(function(req,res){
     if(req.method == 'add_user'){
-        var body = '';
         req.on('data', function(data){
 
-            const json = JSON.parse(req.url);
+            const json = JSON.parse(stringify(req));
 
             fs.writeFile('./userlist.json', json, err => {
                 if(err){
@@ -22,4 +21,9 @@ http.createServer(function(req,res){
             })
         });
     }
+    if(req.method == 'add_comment'){
+        const json = JSON.parse(req.url);
+    }
+
+
 }).listen(8080);
