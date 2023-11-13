@@ -23,7 +23,32 @@ http.createServer(function(req,res){
     }
     if(req.method == 'add_comment'){
         const json = JSON.parse(req.url);
-    }
+        
 
+    }
+    if(req.method == 'view_video_data'){
+        var post_id = parseInt(stringify(req));
+        var str_postId = JSON.parse(jsonString);
+        fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+            if (err) {
+              console.log("File read failed:", err);
+              return;
+            }
+            console.log("File data:", jsonString);
+        });
+        return jsonString.posts[post_id]
+    }
+    if(req.method == 'view_comment_data'){
+        var post_id = parseInt(stringify(req));
+        var str_postId = JSON.parse(jsonString);
+        fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+            if (err) {
+              console.log("File read failed:", err);
+              return;
+            }
+            console.log("File data:", jsonString);
+        });
+        return jsonString.posts[post_id].comments
+    }
 
 }).listen(8080);
