@@ -3,10 +3,15 @@ const fs = require('fs');
 const host = 'localhost';
 const port = 8080;
 ///please review storage.js to see how we will be storing requests that are being made. 
-const json = require('./random.json');
-console.log(json.date);
+const master = require('/masterlist.json');
+const userlist = require('/userlist.json')
 
 http.createServer(function(req,res){
+    if(req.method == 'add_post'){
+      const json = JSON.parse(stringify(req))
+      console.log(req);
+
+    }
     if(req.method == 'add_user'){
         req.on('data', function(data){
 
