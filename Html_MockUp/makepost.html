@@ -213,23 +213,28 @@ fieldset {
 
 <script>
 
-submitpost = function(){
+function submitpost(){
     // Gather the data from the form
     title = document.getElementById("title").value;
-    title = document.getElementById("url").value;
-    newpet = new post(title, title);
+    url = document.getElementById("url").value;
+    newpost = new post(title, url);
+    const json = JSON.parse(newpost);
 
     // Construct a Fetch request
-    logPost(newpet);
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.send(json);
+    xmlhttp.close();
+    console.log("post sent to console");
+
 
     ///load new post 
 
     
 }
 
-post = function(n, s ){
-    this.name = n;
-    this.species = s;
+function post(t, u){
+    this.title = t;
+    this.url = u;
 
 }
 
@@ -240,6 +245,7 @@ post = function(n, s ){
 	});
 
   	const responseText = await response.text();
+
 } 
 
 
@@ -260,7 +266,7 @@ post = function(n, s ){
       <input class="pagecontent" type="text" id="url" name="url" placeholder="Url Here"><br><br>
         </fieldset>
     <fieldset>
-      <button name="submit" type="button" id="post-submit" data-submit="...Sending">Submit</button>
+      <button name="submit" type="button" onclick = "submitpost()" id="post-submit" data-submit="...Sending">Submit</button>
     </fieldset>
   </form>
 </div>
