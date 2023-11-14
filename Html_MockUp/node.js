@@ -28,8 +28,17 @@ http.createServer(function(req,res){
     }
     ///look at userlist.json
     if(req.method == 'add_comment'){
-        const json = JSON.parse(req.url);
         
+      fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
+        console.log("File data:", jsonString);
+      });
+      //need to change this so it takes the actual current user
+      var length = jsonString.users[1].comments.length;
+      jsonString.users[1].comments[length+1] = req.body;
 
     }
     
@@ -95,7 +104,7 @@ http.createServer(function(req,res){
 
     ///should return a boolean or something, we probably should used hashing or something for this lookups lol. 
     if (req.method == "logIn") {
-      fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+      fs.readFile("./user.json", "utf8", (err, jsonString) => {
         if (err) {
           console.log("File read failed:", err);
           return;
@@ -116,6 +125,7 @@ http.createServer(function(req,res){
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
         if (req.method == "friendUpdate") {
+
         }
         //will add subscription to. maybe if already subscribed then unsubscribe. 
         if (req.method == "Subscribe") {
