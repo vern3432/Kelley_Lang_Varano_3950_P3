@@ -35,19 +35,22 @@ http.createServer(function(req,res){
             }
             console.log("File data:", jsonString);
         });
+        //this is incorrect. see unused vraible in line 30.Sma
         return jsonString.posts[post_id]
     }
     if(req.method == 'view_comment_data'){
-        var post_id = parseInt(stringify(req));
-        var str_postId = JSON.parse(jsonString);
-        fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
-            if (err) {
-              console.log("File read failed:", err);
-              return;
-            }
-            console.log("File data:", jsonString);
-        });
-        return jsonString.posts[post_id].comments
+      var post_id = parseInt(stringify(req));
+      var str_postId = JSON.parse(jsonString);
+      fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
+        console.log("File data:", jsonString);
+      });
+      //this is incorrect
+
+      return jsonString.posts[post_id].comments;
     }
 
 
@@ -70,18 +73,19 @@ http.createServer(function(req,res){
                   console.log("File data:", jsonString);
                 });
         //post case and user case 
-       
+        var str_postId = JSON.parse(jsonString);
+
        var forReturn=new Array();
        if(type=="posts"){
-       for (let i = 0; i < jsonString.posts; i++) {
-            if (jsonString.posts[i].title.includes(req)) {
-              forreturn.push(jsonString.posts[i]);
-            }
+       for (let i = 0; i < str_postId.posts; i++) {
+         if (str_postId.posts[i].title.includes(req)) {
+           forreturn.push(jsonString.posts[i]);
+         }
        }
     }else if(type=="users"){
-               for (let i = 0; i < jsonString.users; i++) {
-                 if (jsonString.users[i].username.includes(req)) {
-                   forreturn.push(jsonString.users[i]);
+               for (let i = 0; i < str_postId.users; i++) {
+                 if (str_postId.users[i].str_postId.includes(req)) {
+                   forreturn.push(str_postId.users[i]);
                  }
                }
 
@@ -97,6 +101,9 @@ http.createServer(function(req,res){
 
     ///should return a boolean or something, we probably should used hashing or something for this lookups lol. 
     if (req.method == "logIn") {
+
+
+
                }
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
