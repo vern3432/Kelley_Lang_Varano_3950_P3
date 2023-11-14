@@ -115,11 +115,17 @@ function openPage(pageName, elmnt, color) {
 ////this function will return the appropriate vlaues to fill out two tabs
 function getFriendsandSubs(){
 
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', '/', /* async = */ false);
+  xmlhttp.send();
+
+  const friendArray = xmlhttp.responseText;
+
 }
 
   </script>
-  <button id="friends" class="tablink" onclick="openPage('Home', this, 'red')" style="width: max-content;">Friends</button>
-  <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen" style="width: max-content">Subscriptions</button>
+  <button id="friends" class="tablink" onclick="openPage('Home', this, 'red')">Friends</button>
+  <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Subscriptions</button>
 
   <div id="Home" class="tabcontent">
     <h3>Friends</h3>
