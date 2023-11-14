@@ -113,14 +113,48 @@ function openPage(pageName, elmnt, color) {
 }
 
 ////this function will return the appropriate vlaues to fill out two tabs
-function getFriendsandSubs(){
+function getFriends(){
 
   const xmlhttp = new XMLHttpRequest();
+
+  xmlhttp.onLoad = function(){
+    var method = 'get_friends';
+  }
+
   xmlhttp.open('GET', '/', /* async = */ false);
   xmlhttp.send();
 
-  const friendArray = xmlhttp.responseText;
+  var friendsString = xmlhttp.responseText;
+  const json = JSON.parse(friendsString);
 
+  const arr = [];
+  for(let i = 0; i < 3; i++){
+    arr[i] = json.friends[i];
+  }
+
+  return arr;
+
+}
+
+function getSubs(){
+  const xmlhttp = new XMLHttpRequest();
+
+  xmlhttp.onLoad = function(){
+    var method = 'get_subs';
+  }
+
+  xmlhttp.open('GET', '/', /* async = */ false);
+  xmlhttp.send();
+
+  var friendsString = xmlhttp.responseText;
+  const json = JSON.parse(friendsString);
+
+  const arr = [];
+  for(let i = 0; i < 3; i++){
+    arr[i] = json.subs[i];
+  }
+
+  return arr;
 }
 
   </script>
