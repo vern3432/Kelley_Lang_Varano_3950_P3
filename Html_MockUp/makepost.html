@@ -222,6 +222,7 @@ function submitpost(){
     // Construct a Fetch request
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "/node.js");
+    logPost(newpost);
     xmlhttp.send(newpost);
 
 
