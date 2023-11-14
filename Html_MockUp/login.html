@@ -39,7 +39,7 @@
 ////this should be another xml request, should be receiving a boolean checking the validlity of the login data. if not vlaid. display a simple "invalid user or login in "
     function logIn(){
 
-      const user = user(document.getElementById(user), document.getElementById(password));
+      const user = user(document.getElementById("user").value, document.getElementById("password").value);
       const xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", "/node.js", true);
       var bool = xmlhttp.send(user);
