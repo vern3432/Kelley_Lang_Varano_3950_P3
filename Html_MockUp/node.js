@@ -37,7 +37,6 @@ http.createServer(function(req,res){
       fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
         if (err) {
           console.log("File read failed:", err);
-          return;
         }
         console.log("File data:", jsonString);
       });
@@ -49,7 +48,7 @@ http.createServer(function(req,res){
       for(let i = 0; i < 3; i++){
         array[i] = json.users[0].subscrriptions[i];
       }
-      return array;
+      res.send(array);
       }
       else{
         const array = [];
@@ -60,13 +59,12 @@ http.createServer(function(req,res){
       for(let x = 0; x < json.users.subscrriptions.length; i++){
         jsonString = jsonString + array[i];
       }
+
       res.send(jsonString);
 
-      return array;
+    }
 
-      }
-
-      return null;
+      res.send(null);
 
     }
     ///Needs to use the current user
@@ -75,7 +73,6 @@ http.createServer(function(req,res){
       fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
         if (err) {
           console.log("File read failed:", err);
-          return;
         }
         console.log("File data:", jsonString);
       });
@@ -100,11 +97,11 @@ http.createServer(function(req,res){
       for(let i = 0; i < 3; i++){
         array[i] = json.users[0].friends[i];
       }
-      return array;
+      res.send(array);
 
       }
 
-      return null;
+      res.send(null);
     }
 
     ///Doesn't quite add it properly, I'll fix in the morning.
@@ -122,6 +119,9 @@ http.createServer(function(req,res){
                 }
             })
         });
+
+
+
     }
     ///look at userlist.json
     if(req.method == 'add_comment'){
@@ -129,7 +129,6 @@ http.createServer(function(req,res){
       fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
         if (err) {
           console.log("File read failed:", err);
-          return;
         }
         console.log("File data:", jsonString);
       });
@@ -146,12 +145,12 @@ http.createServer(function(req,res){
         fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
             if (err) {
               console.log("File read failed:", err);
-              return;
             }
             console.log("File data:", jsonString);
         });
         const json = JSON.parse(jsonString);
-        return json.posts[post_id]
+        res.send(posts[post_id]);
+
     }
     if(req.method == 'view_comment_data'){
         var post_id = parseInt(stringify(req));
@@ -159,20 +158,19 @@ http.createServer(function(req,res){
         fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
             if (err) {
               console.log("File read failed:", err);
-              return;
             }
             console.log("File data:", jsonString);
         });
         const json = JSON.parse(jsonString);
-        return json.posts[post_id].comments
-    }
+
+        res.send(json.posts[post_id].comments)
+        }
 
     //this does not work, just an outline for you to work on. Maybe send an array with search type in location 0 , search value in location 1
        if (req.method == "search") {
         fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
                   if (err) {
                     console.log("File read failed:", err);
-                    return;
                   }
                   console.log("File data:", jsonString);
                 });
@@ -194,7 +192,7 @@ http.createServer(function(req,res){
                }
 
        }
-       return forReturn;
+       res.send(forreturn);
     }
     ///again, non functional, just giving an outline. THis will be for looking as users pages and their 
     if (req.method == "view_userPage") {
@@ -217,11 +215,11 @@ http.createServer(function(req,res){
             for(let i = 0; i < json.users.length; i++){
               if(req.user = json.users[i].username){
                 if(req.pass = json.users[i].password){
-                  return ("true");
+                  res.send("true");
                 }
               }
             }
-            return "false";
+            res.send("false");
 
         }
                
@@ -247,6 +245,7 @@ http.createServer(function(req,res){
             }
             json.users[1].subscrriptions[i] = sub;
 
+
         }
 
         if(req.method == "view comments"){
@@ -268,7 +267,7 @@ http.createServer(function(req,res){
 
           }
           
-          return array;
+          res.send(array);
 
         }
 
