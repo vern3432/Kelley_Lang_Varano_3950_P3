@@ -95,6 +95,7 @@ http.createServer(function(req,res){
 
     ///should return a boolean or something, we probably should used hashing or something for this lookups lol. 
     if (req.method == "logIn") {
+      
                }
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
@@ -102,7 +103,21 @@ http.createServer(function(req,res){
         }
         //will add subscription to. maybe if already subscribed then unsubscribe. 
         if (req.method == "Subscribe") {
-                
+            var sub = req.subsctiption;
+            fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+              if (err) {
+                console.log("File read failed:", err);
+                return;
+              }
+              console.log("File data:", jsonString);
+            });
+            i = jsonString.users[1].subscrriptions.length;
+            x = 0;
+            while(x < i){
+              i = i + 1;
+            }
+            jsonString.users[1].subscrriptions[i] = sub;
+
         }
 
 
