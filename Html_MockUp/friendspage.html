@@ -100,8 +100,12 @@ function getFriendsandSubs(pageName){
   if (pageName == 'Home')
   {
     document.getElementById("Home").innerHTML = ""; //Empties Home's content
-    fillElement("friends.json", function(data){
-      curr
+    fillElement("userlist.json", function(data){
+      nFriends = data;
+      for (var i = 0; i < data.users.friends.length; i++)
+      {
+        document.getElementById("Home").innerHTML += data
+      }
     })
   }
 }
