@@ -94,20 +94,8 @@ function openPage(pageName, elmnt, color) {
 }
 
 ////this function will return the appropriate vlaues to fill out two tabs
-var friendsArray = {};
-var subscriptionsArray = {};
-function getFriendsandSubs(pageName){
-  if (pageName == 'Home')
-  {
-    document.getElementById("Home").innerHTML = ""; //Empties Home's content
-    fillElement("userlist.json", function(data){
-      nFriends = data;
-      for (var i = 0; i < data.users.friends.length; i++)
-      {
-        document.getElementById("Home").innerHTML += data
-      }
-    })
-  }
+function getFriendsandSubs(){
+
 }
 
   </script>
