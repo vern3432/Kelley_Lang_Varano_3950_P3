@@ -151,22 +151,22 @@
     }
     ///This will update comments. to be used in postComment function for ajax design 
     async function updateComments(){
-      document.getElementById("display_comments").innerHTML = "";
-      var httpRequest = new XMLHttpRequest();
+      document.getElementById("display_comments").innerHTML = ""; //Clears comments
+      var httpRequest = new XMLHttpRequest(); //Creates request
       httpRequest.onreadystatechange = function(){
-        if (httpRequest.readyState == 4){
-          if (httpRequest.status == 200){
-            console.log(httpRequest.responseText);
-            var data = JSON.parse(httpRequest.responseText);
+        if (httpRequest.readyState == 4){ 
+          if (httpRequest.status == 200){ //Checks ready states
+            console.log(httpRequest.responseText); //Records response text
+            var data = JSON.parse(httpRequest.responseText); //Takes json data
             for (var i = 0; i < data.length; i++){
-              document.getElementById("display_comments").innerHTML += "<p>" + data[i] + "</p>";
+              document.getElementById("display_comments").innerHTML += "<p>" + data[i] + "</p>"; //Adds comments into div element
             }
           }
         }
       }
-      httpRequest.open("view comments");
+      httpRequest.open("view comments"); //Sets request
       httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
-      httpRequest.send();
+      httpRequest.send(); //Sends request
     }
 
 
