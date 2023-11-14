@@ -12,6 +12,58 @@ http.createServer(function(req,res){
       console.log(req);
 
     }
+
+
+    ///Needs to use the current user
+    if(req.method == 'get_subs'){
+      fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
+        console.log("File data:", jsonString);
+      });
+      if(jsonString.users[0].subscrriptions.length < 3){
+        const array = [];
+      for(let i = 0; i < 3; i++){
+        array[i] = jsonString.users[0].subscrriptions[i];
+      }
+      return array;
+      }
+      else{
+        const array = [];
+      for(let i = 0; i < 3; i++){
+        array[i] = jsonString.users[0].subscrriptions[i];
+      }
+      return array;
+      }
+      return null;
+    }
+    ///Needs to use the current user
+    if(req.method == 'get_friends'){
+      fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
+        console.log("File data:", jsonString);
+      });
+      if(jsonString.users[0].friends.length < 3){
+        const array = [];
+      for(let i = 0; i < jsonString.users[0].friends; i++){
+        array[i] = jsonString.users[0].friends[i];
+      }
+      return array;
+      }
+      else{
+        const array = [];
+      for(let i = 0; i < 3; i++){
+        array[i] = jsonString.users[0].friends[i];
+      }
+      return array;
+      }
+      return null;
+    }
     if(req.method == 'add_user'){
         req.on('data', function(data){
 
