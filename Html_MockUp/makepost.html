@@ -218,21 +218,20 @@ function submitpost(){
     title = document.getElementById("title").value;
     url = document.getElementById("url").value;
     newpost = new post(title, url);
-    const json = JSON.parse(newpost);
 
     // Construct a Fetch request
     const xmlhttp = new XMLHttpRequest();
-    xmlhttp.send(json);
-    xmlhttp.close();
-    console.log("post sent to console");
+    xmlhttp.open("POST", "/node.js");
+    xmlhttp.send(newpost);
 
 
-    ///load new post 
+    ///load new post
 
     
 }
 
 function post(t, u){
+
     this.title = t;
     this.url = u;
 
