@@ -95,8 +95,24 @@ http.createServer(function(req,res){
 
     ///should return a boolean or something, we probably should used hashing or something for this lookups lol. 
     if (req.method == "logIn") {
+      fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+        if (err) {
+          console.log("File read failed:", err);
+          return;
+        }
+        console.log("File data:", jsonString);
+            });
       
-               }
+            for(let i = 0; i < jsonString.users.length; i++){
+              if(req.user = jsonString.users[i].username){
+                if(req.pass = jsonString.users[i].password){
+                  console.log("true");
+                }
+              }
+            }
+            console.log("false");
+
+        }
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
         if (req.method == "friendUpdate") {
@@ -104,7 +120,7 @@ http.createServer(function(req,res){
         //will add subscription to. maybe if already subscribed then unsubscribe. 
         if (req.method == "Subscribe") {
             var sub = req.subsctiption;
-            fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
+            fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
               if (err) {
                 console.log("File read failed:", err);
                 return;
