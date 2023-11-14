@@ -42,17 +42,19 @@ http.createServer(function(req,res){
         console.log("File data:", jsonString);
       });
 
-      if(jsonString.users[0].subscrriptions.length < 3){
+      const json = JSON.parse(jsonString);
+
+      if(json.users[0].subscrriptions.length < 3){
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = jsonString.users[0].subscrriptions[i];
+        array[i] = json.users[0].subscrriptions[i];
       }
       return array;
       }
       else{
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = jsonString.users[0].subscrriptions[i];
+        array[i] = json.users[0].subscrriptions[i];
       }
 
       return array;
@@ -73,10 +75,12 @@ http.createServer(function(req,res){
         console.log("File data:", jsonString);
       });
 
-      if(jsonString.users[0].friends.length < 3){
+      const json = JSON.parse(jsonString);
+
+      if(json.users[0].friends.length < 3){
         const array = [];
-      for(let i = 0; i < jsonString.users[0].friends; i++){
-        array[i] = jsonString.users[0].friends[i];
+      for(let i = 0; i < json.users[0].friends; i++){
+        array[i] = json.users[0].friends[i];
       }
       return array;
 
@@ -85,7 +89,7 @@ http.createServer(function(req,res){
 
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = jsonString.users[0].friends[i];
+        array[i] = json.users[0].friends[i];
       }
       return array;
 
@@ -99,7 +103,7 @@ http.createServer(function(req,res){
 
         req.on('data', function(data){
 
-            const json = JSON.parse(stringify(req));
+            const json = JSON.parse(req);
 
             fs.writeFile('./userlist.json', json, err => {
                 if(err){
@@ -120,9 +124,10 @@ http.createServer(function(req,res){
         }
         console.log("File data:", jsonString);
       });
+      const json = JSON.parse(jsonString);
       //need to change this so it takes the actual current user
-      var length = jsonString.users[1].comments.length;
-      jsonString.users[1].comments[length+1] = req.body;
+      var length = json.users[1].comments.length;
+      json.users[1].comments[length+1] = req.body;
 
     }
     
@@ -136,7 +141,8 @@ http.createServer(function(req,res){
             }
             console.log("File data:", jsonString);
         });
-        return jsonString.posts[post_id]
+        const json = JSON.parse(jsonString);
+        return json.posts[post_id]
     }
     if(req.method == 'view_comment_data'){
         var post_id = parseInt(stringify(req));
@@ -148,7 +154,8 @@ http.createServer(function(req,res){
             }
             console.log("File data:", jsonString);
         });
-        return jsonString.posts[post_id].comments
+        const json = JSON.parse(jsonString);
+        return json.posts[post_id].comments
     }
 
     //this does not work, just an outline for you to work on. Maybe send an array with search type in location 0 , search value in location 1
@@ -161,18 +168,19 @@ http.createServer(function(req,res){
                   console.log("File data:", jsonString);
                 });
         //post case and user case 
+        const json = JSON.parse(jsonString);
        
        var forReturn=new Array();
        if(type=="posts"){
-       for (let i = 0; i < jsonString.posts; i++) {
-            if (jsonString.posts[i].title.includes(req)) {
-              forreturn.push(jsonString.posts[i]);
+       for (let i = 0; i < json.posts; i++) {
+            if (json.posts[i].title.includes(req)) {
+              forreturn.push(json.posts[i]);
             }
        }
     }else if(type=="users"){
-               for (let i = 0; i < jsonString.users; i++) {
-                 if (jsonString.users[i].username.includes(req)) {
-                   forreturn.push(jsonString.users[i]);
+               for (let i = 0; i < json.users; i++) {
+                 if (json.users[i].username.includes(req)) {
+                   forreturn.push(json.users[i]);
                  }
                }
 
@@ -195,10 +203,11 @@ http.createServer(function(req,res){
         }
         console.log("File data:", jsonString);
             });
-      
-            for(let i = 0; i < jsonString.users.length; i++){
-              if(req.user = jsonString.users[i].username){
-                if(req.pass = jsonString.users[i].password){
+    
+            const json = JSON.parse(jsonString);
+            for(let i = 0; i < json.users.length; i++){
+              if(req.user = json.users[i].username){
+                if(req.pass = json.users[i].password){
                   return ("true");
                 }
               }
@@ -221,12 +230,13 @@ http.createServer(function(req,res){
               }
               console.log("File data:", jsonString);
             });
-            i = jsonString.users[1].subscrriptions.length;
+            const json = JSON.parse(jsonString);
+            i = json.users[1].subscrriptions.length;
             x = 0;
             while(x < i){
               i = i + 1;
             }
-            jsonString.users[1].subscrriptions[i] = sub;
+            json.users[1].subscrriptions[i] = sub;
 
         }
 
@@ -241,9 +251,11 @@ http.createServer(function(req,res){
             }
           });
 
-          for(let i = 0; i > jsonString.user[0].posts.length; i++){
+          const json = JSON.parse(jsonString);
 
-            array[i] = jsonString.user[req.user].posts[req.postId].comments[i];
+          for(let i = 0; i > json.user[0].posts.length; i++){
+
+            array[i] = json.user[req.user].posts[req.postId].comments[i];
 
           }
           
