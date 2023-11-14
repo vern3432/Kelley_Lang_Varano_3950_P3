@@ -56,6 +56,11 @@ http.createServer(function(req,res){
       for(let i = 0; i < 3; i++){
         array[i] = json.users[0].subscrriptions[i];
       }
+      var jsonString = "";
+      for(let x = 0; x < json.users.subscrriptions.length; i++){
+        jsonString = jsonString + array[i];
+      }
+      res.send(jsonString);
 
       return array;
 
@@ -79,10 +84,14 @@ http.createServer(function(req,res){
 
       if(json.users[0].friends.length < 3){
         const array = [];
-      for(let i = 0; i < json.users[0].friends; i++){
+      for(let i = 0; i < json.users[0].friends.length; i++){
         array[i] = json.users[0].friends[i];
       }
-      return array;
+      var jsonString = "";
+      for(let x = 0; x < json.users.friends.length; i++){
+        jsonString = jsonString + array[i];
+      }
+      res.send(jsonString);
 
       }
       else{
@@ -103,7 +112,7 @@ http.createServer(function(req,res){
 
         req.on('data', function(data){
 
-            const json = JSON.parse(req);
+            const json = JSON.parse(req.body);
 
             fs.writeFile('./userlist.json', json, err => {
                 if(err){
