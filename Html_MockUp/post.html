@@ -145,7 +145,7 @@
         ///Current user here
         var json = '{"body":' + comText + ', "user:' + user;
       }
-      xmlhttp.open("add_comment", json);
+      xmlhttp.open("POST", json);
       updateComments();
       xmlhttp.close();
     }
