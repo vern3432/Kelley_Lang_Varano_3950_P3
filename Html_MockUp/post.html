@@ -151,12 +151,22 @@
     }
     ///This will update comments. to be used in postComment function for ajax design 
     async function updateComments(){
-      const response = await fetch('http://localhost:8080', {
-        method: 'view comments'
-      });
-
-      const responseText = await response.text();
-      loadComments();
+      document.getElementById("display_comments").innerHTML = "";
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onreadystatechange = function(){
+        if (httpRequest.readyState == 4){
+          if (httpRequest.status == 200){
+            console.log(httpRequest.responseText);
+            var data = JSON.parse(httpRequest.responseText);
+            for (var i = 0; i < data.length; i++){
+              document.getElementById("display_comments").innerHTML += "<p>" + data[i] + "</p>";
+            }
+          }
+        }
+      }
+      httpRequest.open("view comments");
+      httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
+      httpRequest.send();
     }
 
 
@@ -179,6 +189,9 @@
 }
   </style>
 <div id="comment_container">
+  <div id="display_comments">
+
+  </div>
   <div class="coment-bottom bg-white p-2 px-4">
     <div id = "commenttext" class="comment_pfp"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://pbs.twimg.com/media/FtsxswzaUAAZXJj.jpg:large" alt="https://pbs.twimg.com/media/FtsxswzaUAAZXJj.jpg:large" width="38"><input type="text" class="form-control mr-3" placeholder="Add comment">
       <button class="commetn_button" type="button" onclick = "postComment()">Comment</button>
