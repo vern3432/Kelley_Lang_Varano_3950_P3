@@ -142,17 +142,17 @@
       const xmlhttp = new XMLHttpRequest();
       xmlhttp.onload = function(){
         var comText = document.getElementById("commenttext").textContent;
-        ///Current user here
+        var user = localStorage.getItem("current_user");
         var json = '{"body":' + comText + ', "user:' + user;
       }
-      xmlhttp.open("POST", json);
+      xmlhttp.open("add_comment", json);
       updateComments();
       xmlhttp.close();
     }
     ///This will update comments. to be used in postComment function for ajax design 
     async function updateComments(){
 
-      
+
 
     }
 
