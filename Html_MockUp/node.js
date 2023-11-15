@@ -78,14 +78,15 @@ http.createServer(function(req,res){
       });
 
       const json = JSON.parse(jsonString);
-
-      if(json.users[0].friends.length < 3){
+      //Addition of current user below
+      var currUser = localStorage.getItem("current_user");
+      if(currUser.friends.length < 3){
         const array = [];
-      for(let i = 0; i < json.users[0].friends.length; i++){
-        array[i] = json.users[0].friends[i];
+      for(let i = 0; i < currUser.friends.length; i++){
+        array[i] = currUser.friends[i];
       }
       var jsonString = "";
-      for(let x = 0; x < json.users.friends.length; i++){
+      for(let x = 0; x < currUser.friends.length; i++){
         jsonString = jsonString + array[i];
       }
       res.send(jsonString);
@@ -95,7 +96,7 @@ http.createServer(function(req,res){
 
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = json.users[0].friends[i];
+        array[i] = currUser.friends[i];
       }
       res.send(array);
 

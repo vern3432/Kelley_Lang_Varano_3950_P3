@@ -70,7 +70,8 @@
   <img id="friend"  class="friends_label" src="friends2.png" alt=""> <b  id="friend_menu_text" style="  font-size: 23px;" >Friends</b>
 </a>
   </label>
-  <div class="friend_container">
+  <div id="friendsList"></div>
+ <!---<div class="friend_container">
     <br>
 
       <img class="pfp" src="bart.png" alt="">
@@ -86,7 +87,7 @@
   <img class="pfp" src="maggie.png" alt="">
   <a class="useranme">@Maggie_Simpson</a>
 <br>
-</div>
+</div> -->
 
 </div>  
 <div class="subs_bar" id="subs_bar">
@@ -95,7 +96,8 @@
     <img id="friend"  class="subs_label" src="subscribe2.png" alt=""> <b  id="friend_menu_text" style="  font-size: 23px;" >Subscriptions</b>
   </a>
 </label>
-<div class="friend_container">
+<div id="subList"></div>
+<!--<div class="friend_container">
   <img class="pfp" src="homer.png" alt="">
   <a class="useranme">@Homer_Simpson</a>
 <br>
@@ -109,7 +111,7 @@
   <img class="pfp" src="graggle.png" alt="">
   <a class="useranme">@Graggle_Simpson</a>
 <br>
-</div>
+</div>-->
 
 </div>
 
@@ -136,6 +138,45 @@
     xmlhttp.open("GET", "masterlist.json")
     xmlhttp.send();
     
+    //Sets displayed friends and subs in container to current user's friends
+    function getFriends(){
+      document.getElementById("friendsList").innerHTML = "";
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onload = function(){
+        var data = JSON.parse(httpRequest.responseText);
+        if (data == ""){
+          document.getElementById("friendsList").innerHTML = "<p> No Friends Yet. </p>";
+        }
+        else{
+          for (var i = 0; i < data.length; i++){
+            document.getElementById("friendsList").innerHTML = "<div class= 'friend_container'> <br> <a class='useranme'>" + data[i].username + "</a> </div>";
+          }
+        }
+      }
+      httpRequest.open("get_friends");
+      httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
+      httpRequest.close();
+    }
+
+    function getSubs(){
+      document.getElementById("subList").innerHTML = "";
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onload = function(){
+        var data = JSON.parse(httpRequest.responseText);
+        if (data == ""){
+          document.getElementById("subList").innerHTML = "<p> No Subscriptions Yet. </p>";
+        }
+        else{
+          for (var i = 0; i < data.length; i++){
+            document.getElementById("subList").innerHTML = "<div class= 'friend_container'> <br> <a class='useranme'>" + data[i].username + "</a> </div>";
+          }
+        }
+      }
+      httpRequest.open("get_subs");
+      httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
+      httpRequest.close();
+    }
+
   ///will post the  comment. should update section when done. 
     function postComment(){
 
