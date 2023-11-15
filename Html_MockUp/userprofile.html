@@ -135,13 +135,13 @@ Im thinking these links should be stored in whatever json we generate to contain
 <script>
   function loadUserPage(userID){
       localStorage.getItem("user_request",userID);
-      console.log("local storage")
+      console.log("local storage set")
       window.open('userprofile.html',"_self");
     }
 
     function loadPostPage(postID){
       localStorage.getItem("post_request",postID)
-      console.log("local storage")
+      console.log("local storage set ")
       window.open('./post.html',"_self");
     }
 </script> 
