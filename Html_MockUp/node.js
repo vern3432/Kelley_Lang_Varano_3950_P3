@@ -42,18 +42,19 @@ http.createServer(function(req,res){
       });
 
       const json = JSON.parse(jsonString);
-
-      if(json.users[0].subscrriptions.length < 3){
+      //Addition of current user below
+      var currUser = localStorage.getItem("current_user");
+      if(currUser.subscrriptions.length < 3){
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = json.users[0].subscrriptions[i];
+        array[i] = currUser.subscrriptions[i];
       }
       res.send(array);
       }
       else{
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = json.users[0].subscrriptions[i];
+        array[i] = currUser.subscrriptions[i];
       }
       var jsonString = "";
       for(let x = 0; x < json.users.subscrriptions.length; i++){
