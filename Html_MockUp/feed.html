@@ -174,21 +174,26 @@ Im thinking these links should be stored in whatever json we generate to contain
 </div>
 
     
-    </div>  
+    </div> 
+    <script>
+      function loadUserPage(userID){
+          localStorage.getItem("user_request",userID);
+          console.log("local storage")
+          window.open('userprofile.html');
+        }
+    
+        function loadPostPage(postID){
+          localStorage.getItem("post_request",postID)
+          console.log("local storage")
+          window.open('./post.html');
+        }
+    </script> 
   </body>
 
 
-<script>
-  function loadUserPage(userID){
-      localStorage.getItem("user_request") = userID;
 
-    }
-
-    function loadPostPage(postID){
-      localStorage.getItem("post_request") = postID;
-
-    }
-</script>
 
 
 </html>
+
+
