@@ -122,17 +122,6 @@
   <h3 id = "url"></h3>
   <script>
 
-        //loadUserPage and loadPostPage are temporary
-    function loadUserPage(userID){
-      localStorage.getItem("user_request") = userID;
-
-    }
-
-    function loadPostPage(postID){
-      localStorage.getItem("post_request") = postID;
-
-    }
-    
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       const myObj = JSON.parse(xmlhttp.responseText);
@@ -179,7 +168,17 @@
       httpRequest.send();
     }
 
-
+      function loadUserPage(userID){
+          localStorage.getItem("user_request",userID);
+          console.log("local storage")
+          window.open('userprofile.html',"_self");
+        }
+    
+        function loadPostPage(postID){
+          localStorage.getItem("post_request",postID)
+          console.log("local storage",)
+          window.open('./post.html'),"_self";
+        }
     
   </script>
   </div>
