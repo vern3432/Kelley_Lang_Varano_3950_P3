@@ -85,17 +85,17 @@ Im thinking these links should be stored in whatever json we generate to contain
   <div class="friend_container">
     <br>
 
-      <img class="pfp" src="bart.png" alt="">
+      <img class="pfp" src="bart.png" alt="" onclick = 'loadUserPage("00001")' href = "userprofile.html">
       <a class="useranme">@Bart_Simpson</a>
 <br>
   </div>
-  <div class="friend_container">
+  <div class="friend_container" onclick = 'loadUserPage("00002")' href = "userprofile.html">
     <img class="pfp" src="lisa.png" alt="">
     <a class="useranme">@Lisa_Simpson</a>
 <br>
 </div>
 <div class="friend_container">
-  <img class="pfp" src="maggie.png" alt="">
+  <img class="pfp" src="maggie.png" alt="" onclick = 'loadUserPage("00003")' href = "userprofile.html">
   <a class="useranme">@Maggie_Simpson</a>
 <br>
 </div>
@@ -108,16 +108,16 @@ Im thinking these links should be stored in whatever json we generate to contain
   </a>
 </label>
 <div class="friend_container">
-  <img class="pfp" src="homer.png" alt="">
+  <img class="pfp" src="homer.png" alt="" onclick = 'loadUserPage("00001")' href = "userprofile.html">
   <a class="useranme">@Homer_Simpson</a>
 <br>
 </div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage("00002")' href = "userprofile.html">
   <img class="pfp" src="marge.png" alt="">
   <a class="useranme">@Marge_Simpson</a>
 <br>
 </div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage("00003")' href = "userprofile.html">
   <img class="pfp" src="graggle.png" alt="">
   <a class="useranme">@Graggle_Simpson</a>
 <br>
@@ -131,7 +131,7 @@ Im thinking these links should be stored in whatever json we generate to contain
   <h1 id="pagetitle" class="contentheader">Posts Feed</h1>
 <div id="posts">     
             <div class="flex">
-               <div class="postcontainer">
+               <div class="postcontainer" onclick = 'loadPostPage("00001")' href = "post.html">
                 <p class="title">Isaiah Thomas 52 Points! 29 in the 4th Quarter | 12.30.16
 
                 <img class="thumbnail" src="thumnail.jpg" alt="">
@@ -140,7 +140,7 @@ Im thinking these links should be stored in whatever json we generate to contain
               </div>
 
         </div>  <div class="flex">
-            <div class="postcontainer">
+            <div class="postcontainer" onclick = 'loadPostPage("00002")' href = "post.html">
                           <p class="title">The Celtics are OVERWHELMING teams with talent – Woj | NBA Today
 
             <img class="thumbnail" src="thumbnail2.jpg" alt="">
@@ -149,7 +149,7 @@ Im thinking these links should be stored in whatever json we generate to contain
 <br>
         </div>  
         <div class="flex">
-            <div class="postcontainer">
+            <div class="postcontainer" onclick = 'loadPostPage("00003")' href = "post.html">
                   <p class="title">[FULL] Jrue Holiday's introductory press conference for the Boston Celtics | NBA on ESPN
 
             <img class="thumbnail" src="thumbnail3.jpg" alt="">
@@ -178,7 +178,17 @@ Im thinking these links should be stored in whatever json we generate to contain
   </body>
 
 
+<script>
+  function loadUserPage(userID){
+      localStorage.getItem("user_request") = userID;
 
+    }
+
+    function loadPostPage(postID){
+      localStorage.getItem("post_request") = postID;
+
+    }
+</script>
 
 
 </html>
