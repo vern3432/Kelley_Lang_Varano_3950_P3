@@ -225,6 +225,7 @@ http.createServer(function(req,res){
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
         if (req.method == "friendUpdate") {
+          ///will take an array of both current user, and userID which will be updated in the freinds array should be pretyt simple 
 
         }
         //will add subscription to. maybe if already subscribed then unsubscribe. 
