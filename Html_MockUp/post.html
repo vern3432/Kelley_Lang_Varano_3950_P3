@@ -122,7 +122,16 @@
   <h3 id = "poster"></h3>
   <h3 id = "url"></h3>
   <script>
-    
+    //loadUserPage and loadPostPage are temporary
+    function loadUserPage(userID){
+      localStorage.getItem("user_request") = userID;
+
+    }
+
+    function loadPostPage(postID){
+      localStorage.getItem("post_request") = postID;
+
+    }
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       const myObj = JSON.parse(this.responseText);
