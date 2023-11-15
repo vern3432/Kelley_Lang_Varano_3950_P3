@@ -8,6 +8,10 @@ const userlist = require('./userlist.json')
 
 http.createServer(function(req,res){
 
+
+
+  ///most requests do not sned methods properly, regardless, these checks do not work 
+
     if(req.method == 'add_post'){
 
       var post = req.body;
@@ -103,6 +107,9 @@ http.createServer(function(req,res){
     }
 
     ///Doesn't quite add it properly, I'll fix in the morning.
+
+
+    ///This still does not actaull do anything  
     if(req.method == 'add_user'){
 
         req.on('data', function(data){
@@ -165,7 +172,9 @@ http.createServer(function(req,res){
         }
 
     //this does not work, just an outline for you to work on. Maybe send an array with search type in location 0 , search value in location 1
-       if (req.method == "search") {
+     ///This still does not actaull do anything  
+        
+    if (req.method == "search") {
         fs.readFile("./masterlist.json", "utf8", (err, jsonString) => {
                   if (err) {
                     console.log("File read failed:", err);
@@ -222,11 +231,13 @@ http.createServer(function(req,res){
         }
                
         //maybe should be at top given frequency. Will update friends count, if friend is new, add to friend list and set count value to 1. will update in user file. 
+      //never implimented 
         if (req.method == "friendUpdate") {
           ///will take an array of both current user, and userID which will be updated in the freinds array should be pretyt simple 
 
         }
         //will add subscription to. maybe if already subscribed then unsubscribe. 
+        ///request to interact with this was never added 
         if (req.method == "subscribe") {
             var sub = req.subsctiption;
             fs.readFile("./userlist.json", "utf8", (err, jsonString) => {
