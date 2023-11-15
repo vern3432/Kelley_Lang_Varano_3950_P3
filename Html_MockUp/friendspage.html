@@ -85,9 +85,9 @@ function getFriends(number){
   let array = [];
   ///I will update the node.js so that it uploads a json as a response in this way
   ///Json will look like this {friends [insert user objects here]}
-  array[0] = json.friends[0];
-  array[1] = json.friends[1];
-  array[2] = json.friends[2];
+  for(let i=0;i<json.friends.length;i++){
+      array[i] = json.friends[i];
+}
 
 }
 
