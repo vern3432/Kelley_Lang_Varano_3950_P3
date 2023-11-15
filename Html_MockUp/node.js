@@ -42,19 +42,17 @@ http.createServer(function(req,res){
       });
 
       const json = JSON.parse(jsonString);
-      //Addition of current user below
-      var currUser = localStorage.getItem("current_user");
-      if(currUser.subscrriptions.length < 3){
+      if(json.users[0].subscrriptions.length < 3){
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = currUser.subscrriptions[i];
+        array[i] = json.users[0].subscrriptions[i];
       }
       res.send(array);
       }
       else{
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = currUser.subscrriptions[i];
+        array[i] = json.users[0].subscrriptions[i];
       }
       var jsonString = "";
       for(let x = 0; x < json.users.subscrriptions.length; i++){
@@ -79,15 +77,13 @@ http.createServer(function(req,res){
       });
 
       const json = JSON.parse(jsonString);
-      //Addition of current user below
-      var currUser = localStorage.getItem("current_user");
-      if(currUser.friends.length < 3){
+      if(json.users[0].friends.length < 3){
         const array = [];
-      for(let i = 0; i < currUser.friends.length; i++){
-        array[i] = currUser.friends[i];
+      for(let i = 0; i < json.users[0].friends.length; i++){
+        array[i] = json.users[0].friends[i];
       }
       var jsonString = "";
-      for(let x = 0; x < currUser.friends.length; i++){
+      for(let x = 0; x < json.users[0].friends.length; i++){
         jsonString = jsonString + array[i];
       }
       res.send(jsonString);
@@ -97,7 +93,7 @@ http.createServer(function(req,res){
 
         const array = [];
       for(let i = 0; i < 3; i++){
-        array[i] = currUser.friends[i];
+        array[i] = json.users[0].friends[i];
       }
       res.send(array);
 
