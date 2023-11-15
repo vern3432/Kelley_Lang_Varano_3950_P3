@@ -36,7 +36,7 @@
       <b class="sidebar_text" id="friend" style="font-size: 23px">Friends</b>
       <br />
     </a>
-    <a href="loadUserPage(localStorage.getItem('current_user'))">
+    <a href="loadcurrUserPage()">
       <img id="profile" class="icon" src="profile2.png" alt="" />
       <b class="sidebar_text" id="friend" style="font-size: 23px">Profile</b>
       <br />
@@ -167,18 +167,23 @@
       httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
       httpRequest.send();
     }
-
-      function loadUserPage(userID){
-          localStorage.getItem("user_request",userID);
-          console.log("local storage")
-          window.open('userprofile.html',"_self");
-        }
-    
-        function loadPostPage(postID){
-          localStorage.getItem("post_request",postID)
-          console.log("local storage",)
-          window.open('./post.html'),"_self";
-        }
+    function loadcurrUserPage(){
+      var current=localStorage.getItem("current_user")
+      localStorage.setItem("user_request",current);
+      console.log("local storage set")
+      window.open('userprofile.html',"_self");
+    }
+    function loadUserPage(userID){
+        localStorage.setItem("user_request",userID);
+        console.log("local storage set")
+        window.open('userprofile.html',"_self");
+      }
+  
+      function loadPostPage(postID){
+        localStorage.setItem("post_request",postID)
+        console.log("local storage set ")
+        window.open('./post.html',"_self");
+      }
     
   </script>
   </div>

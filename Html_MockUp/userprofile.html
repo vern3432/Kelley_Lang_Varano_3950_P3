@@ -46,9 +46,9 @@ Im thinking these links should be stored in whatever json we generate to contain
         <b class="sidebar_text" id="friend" style="font-size: 23px">Friends</b>
         <br />
       </a>
-      localStorage.getItem('current_user')
+       
 
-      <a href="loadUserPage(localStorage.getItem('current_user'))">
+      <a onclick="loadcurrUserPage()">
         <img id="profile" class="icon" src="profile2.png" alt="" />
         <b class="sidebar_text" id="friend" style="font-size: 23px">Profile</b>
         <br />
@@ -135,14 +135,20 @@ Im thinking these links should be stored in whatever json we generate to contain
   <body id="pagecontent"></body>
 </html>
 <script>
+  function loadcurrUserPage(){
+    var current=localStorage.getItem("current_user")
+    localStorage.setItem("user_request",current);
+    console.log("local storage set")
+    window.open('userprofile.html',"_self");
+  }
   function loadUserPage(userID){
-      localStorage.getItem("user_request",userID);
+      localStorage.setItem("user_request",userID);
       console.log("local storage set")
       window.open('userprofile.html',"_self");
     }
 
     function loadPostPage(postID){
-      localStorage.getItem("post_request",postID)
+      localStorage.setItem("post_request",postID)
       console.log("local storage set ")
       window.open('./post.html',"_self");
     }
