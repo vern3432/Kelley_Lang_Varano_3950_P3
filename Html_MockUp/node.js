@@ -213,11 +213,11 @@ http.createServer(function(req,res){
             for(let i = 0; i < json.users.length; i++){
               if(req.user = json.users[i].username){
                 if(req.pass = json.users[i].password){
-                  res.send("true");
+                  res.send(["true",json.users[i].userID]);
                 }
               }
             }
-            res.send("false");
+            res.send(["false",null]);
 
         }
                
