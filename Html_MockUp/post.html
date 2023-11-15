@@ -70,42 +70,41 @@
   <img id="friend"  class="friends_label" src="friends2.png" alt=""> <b  id="friend_menu_text" style="  font-size: 23px;" >Friends</b>
 </a>
   </label>
-  <div id="friendsList"></div>
- <div class="friend_container">
+  <div class="friend_container" onclick = 'loadUserPage()'>
     <br>
-
       <img class="pfp" src="bart.png" alt="">
       <a class="useranme">@Bart_Simpson</a>
 <br>
   </div>
-  <div class="friend_container">
+  <div class="friend_container" onclick = 'loadUserPage()'>
     <img class="pfp" src="lisa.png" alt="">
     <a class="useranme">@Lisa_Simpson</a>
 <br>
 </div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage()'>
   <img class="pfp" src="maggie.png" alt="">
   <a class="useranme">@Maggie_Simpson</a>
 <br>
-</div></div>  
+</div>
+
+</div>  
 <div class="subs_bar" id="subs_bar">
   <label for="subs_bar" id="subs_label">
     <a href="friends.html" id="friends_label">
     <img id="friend"  class="subs_label" src="subscribe2.png" alt=""> <b  id="friend_menu_text" style="  font-size: 23px;" >Subscriptions</b>
   </a>
 </label>
-<div id="subList"></div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage()'>
   <img class="pfp" src="homer.png" alt="">
   <a class="useranme">@Homer_Simpson</a>
 <br>
 </div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage()'>
   <img class="pfp" src="marge.png" alt="">
   <a class="useranme">@Marge_Simpson</a>
 <br>
 </div>
-<div class="friend_container">
+<div class="friend_container" onclick = 'loadUserPage()'>
   <img class="pfp" src="graggle.png" alt="">
   <a class="useranme">@Graggle_Simpson</a>
 <br>
@@ -116,15 +115,16 @@
 <body id="pagecontent">
   <div class="video_post_container">
   <label for="video_container"><h1>Video Title</h1></label>
-  <iframe id="video_container"width="560" height="315" src="https://www.youtube.com/embed/gHLgryJKwvU?si=rA8shgeBhCr9csuz" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe id="video_container" width ="560" height="315" src="https://www.youtube.com/embed/gHLgryJKwvU?si=rA8shgeBhCr9csuz" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <h3 id = "date"></h3>
   <!-- need to add pfp here-->
   <h3 id = "poster"></h3>
   <h3 id = "url"></h3>
   <script>
-    //loadUserPage and loadPostPage are temporary
-    function loadUserPage(userID){
-      localStorage.getItem("user_request") = userID;
+
+        //loadUserPage and loadPostPage are temporary
+        function loadUserPage(userID){
+    localStorage.getItem("user_request") = userID;
 
     }
 
@@ -132,9 +132,10 @@
       localStorage.getItem("post_request") = postID;
 
     }
+    
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
-      const myObj = JSON.parse(this.responseText);
+      const myObj = JSON.parse(xmlhttp.responseText);
       //you need to assign the url to the src of the iframe. 
       document.getElementById("date").innerHTML = myObj.date;
       document.getElementById("poster").innerHTML = myObj.displayName;
@@ -144,7 +145,7 @@
     }
     xmlhttp.open("GET", "masterlist.json")
     xmlhttp.send();
-
+    
   ///will post the  comment. should update section when done. 
     function postComment(){
 
@@ -160,22 +161,22 @@
     }
     ///This will update comments. to be used in postComment function for ajax design 
     async function updateComments(){
-      document.getElementById("display_comments").innerHTML = ""; //Clears comments
-      var httpRequest = new XMLHttpRequest(); //Creates request
+      document.getElementById("display_comments").innerHTML = "";
+      var httpRequest = new XMLHttpRequest();
       httpRequest.onreadystatechange = function(){
-        if (httpRequest.readyState == 4){ 
-          if (httpRequest.status == 200){ //Checks ready states
-            console.log(httpRequest.responseText); //Records response text
-            var data = JSON.parse(httpRequest.responseText); //Takes json data
+        if (httpRequest.readyState == 4){
+          if (httpRequest.status == 200){
+            console.log(httpRequest.responseText);
+            var data = JSON.parse(httpRequest.responseText);
             for (var i = 0; i < data.length; i++){
-              document.getElementById("display_comments").innerHTML += "<p>" + data[i] + "</p>"; //Adds comments into div element
+              document.getElementById("display_comments").innerHTML += "<p>" + data[i] + "</p>";
             }
           }
         }
       }
-      httpRequest.open("view comments"); //Sets request
+      httpRequest.open("view comments");
       httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
-      httpRequest.send(); //Sends request
+      httpRequest.send();
     }
 
 
