@@ -36,7 +36,7 @@
       <b class="sidebar_text" id="friend" style="font-size: 23px">Friends</b>
       <br />
     </a>
-    <a href="loadcurrUserPage()">
+    <a onclick="loadcurrUserPage()">
       <img id="profile" class="icon" src="profile2.png" alt="" />
       <b class="sidebar_text" id="friend" style="font-size: 23px">Profile</b>
       <br />
@@ -122,6 +122,27 @@
   <h3 id = "url"></h3>
   <script>
 
+
+
+    function loadcurrUserPage(){
+      var current=localStorage.getItem("current_user")
+      localStorage.setItem("user_request",current);
+      console.log("local storage set")
+      window.open('userprofile.html',"_self");
+    }
+    function loadUserPage(userID){
+        localStorage.setItem("user_request",userID);
+        console.log("local storage set")
+        window.open('userprofile.html',"_self");
+      }
+  
+      function loadPostPage(postID){
+        localStorage.setItem("post_request",postID)
+        console.log("local storage set ")
+        window.open('./post.html',"_self");
+      }
+
+
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       const myObj = JSON.parse(xmlhttp.responseText);
@@ -162,29 +183,14 @@
             }
           }
         }
-      }
+      }}
       httpRequest.open("view comments");
       httpRequest.setRequestHeader("Access-Control-Request-Origin", "*");
       httpRequest.send();
-    }
-    function loadcurrUserPage(){
-      var current=localStorage.getItem("current_user")
-      localStorage.setItem("user_request",current);
-      console.log("local storage set")
-      window.open('userprofile.html',"_self");
-    }
-    function loadUserPage(userID){
-        localStorage.setItem("user_request",userID);
-        console.log("local storage set")
-        window.open('userprofile.html',"_self");
-      }
-  
-      function loadPostPage(postID){
-        localStorage.setItem("post_request",postID)
-        console.log("local storage set ")
-        window.open('./post.html',"_self");
-      }
-    
+
+
+
+
   </script>
   </div>
   <br>
@@ -212,11 +218,6 @@
 </div>
 </div>
 </body>
-
-
-
-
-
 
 
 
