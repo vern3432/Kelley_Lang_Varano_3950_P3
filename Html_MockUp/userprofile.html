@@ -85,7 +85,7 @@ Im thinking these links should be stored in whatever json we generate to contain
         <b id="friend_menu_text" style="font-size: 23px">Friends</b>
       </a>
     </label>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00003")' href = "userprofile.html">
       <br />
 
       <img class="pfp" src="bart.png" alt="" />
@@ -93,13 +93,13 @@ Im thinking these links should be stored in whatever json we generate to contain
       <button style="color: red; background-color: aliceblue; float: right center;">Subscribe!</button>
       <br />
     </div>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00003")' href = "userprofile.html">
       <img class="pfp" src="lisa.png" alt="" />
       <a class="useranme">@Lisa_Simpson</a>
       <button style="color: red; background-color: aliceblue; float: right center;">Subscribe!</button>
       <br />
     </div>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00003")' href = "userprofile.html">
       <img class="pfp" src="maggie.png" alt="" />
       <a class="useranme">@Maggie_Simpson</a>
       <button style="color: red; background-color: aliceblue; float: right center;">Subscribe!</button>
@@ -113,17 +113,17 @@ Im thinking these links should be stored in whatever json we generate to contain
         <b id="friend_menu_text" style="font-size: 23px">Subscriptions</b>
       </a>
     </label>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00001")' href = "userprofile.html">
       <img class="pfp" src="homer.png" alt="" />
       <a class="useranme">@Homer_Simpson</a>
       <br />
     </div>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00002")' href = "userprofile.html">
       <img class="pfp" src="marge.png" alt="" />
       <a class="useranme">@Marge_Simpson</a>
       <br />
     </div>
-    <div class="friend_container">
+    <div class="friend_container" onclick = 'loadUserPage("00003")' href = "userprofile.html">
       <img class="pfp" src="graggle.png" alt="" />
       <a class="useranme">@Graggle_Simpson</a>
       <br />
@@ -132,3 +132,13 @@ Im thinking these links should be stored in whatever json we generate to contain
 
   <body id="pagecontent"></body>
 </html>
+
+<script>
+    function loadUserPage(userID){
+      localStorage.getItem("user_request") = userID;
+    }
+
+    function loadPostPage(postID){
+      localStorage.getItem("post_request") = postID;
+    }
+</script>
