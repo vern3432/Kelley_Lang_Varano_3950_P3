@@ -247,6 +247,10 @@ body{
   margin-left: 45px;
 
 }
+.postcontainer:hover{
+  filter: brightness(120%);
+
+}
 
 .pagecontent h1{
   margin-left: 45px;
@@ -328,6 +332,11 @@ body{
 padding-top: 10px;
 
 }
+.friend_container:hover{
+  filter: brightness(120%);
+
+}
+
 .subs_bar{
   position: absolute;
   bottom: 0;

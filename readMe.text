@@ -1,0 +1,17 @@
+#Proffesor, I would like to note that these html pages look perfectly fine and are well formated on both my mint and windows installs.
+However, when people decided to actually look at the pages after the due date, there were some issues with the formating. I attempted to fix this as best as I could 
+after the pages were looked at after many requests to have them loked at over the course of the prior two weeks. Thank you and sorry if there are issues. If there are, 
+please let me know. 
+
+1.Node js server is contained in file named node.js, none of the server requests function or are called properly, so, I do not believe there is any point in running this
+
+2.Login fucntionality is broken, however, if it wasnt,you would have started at login.html which, after a successful login would have directed you to 
+feed.html, the home page. If these were functoinal, they would have then assinged a logged in value to local storage to be utilized in future server calls. 
+
+3. The navigation bar has all the obejects you need to navigate the site. This should function properly. Each link and button assings local storage that was meant 
+to be incoprated in server calls, obviously none of these use these despite outlines calling for it. Additoinally, sidebar 
+
+4. Click expand function on bottom of sidebar for text labels. 
+
+5. Post containers and friend containers offer links, again, underlying server calls are broken so they
+just generate empty pages.However, they demonstrate what was supposed to happen
